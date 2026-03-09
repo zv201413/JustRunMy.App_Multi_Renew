@@ -14,13 +14,9 @@
 
 | 变量类型 | 变量名 (Name) | 示例值 (Value) |
 | :--- | :--- | :--- |
-
 | **通知 ID（可选）** | TG_ID | 987654321 |
-
 | **通知 Token（可选）** | TG_TOKEN | 123456:ABC-DEF... |
-
 | **账号邮箱** | EML_1, EML_2, EML_3... | user@example.com |
-
 | **账号密码** | PWD_1, PWD_2, PWD_3... | your_password |
 
 ### 总结如下图
