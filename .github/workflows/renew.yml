@@ -37,15 +37,16 @@ jobs:
         run: |
           pip install seleniumbase aiohttp requests
           seleniumbase install chromedriver
-          
-      - name: 🚀 运行脚本 (带强力清理环境)
+
+      - name: 🚀 运行续期脚本
         env:
-          # 核心映射：将你的 Secrets (EML_1, PWD_1等) 映射给脚本
-          JUSTRUNMY_EMAIL: ${{ secrets[format('EML_{0}', matrix.suffix)] }}
-          JUSTRUNMY_PASSWORD: ${{ secrets[format('PWD_{0}', matrix.suffix)] }}
-          # 对应你强调的 TG 变量名
-          TG_BOT_TOKEN: ${{ secrets.TG_TOKEN }}
-          TG_CHAT_ID: ${{ secrets.TG_ID }}
+          # 必须将 GitHub Secrets 映射到脚本识别的变量名
+          EML_1: ${{ secrets.EML_1 }}
+          PWD_1: ${{ secrets.PWD_1 }}
+          EML_2: ${{ secrets.EML_2 }}
+          PWD_2: ${{ secrets.PWD_2 }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_ID: ${{ secrets.TG_ID }}
         run: |
           # 1. 强力杀死可能残留的浏览器和驱动进程，确保每个矩阵任务环境纯净
           pkill -f chrome || true
